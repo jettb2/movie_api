@@ -7,13 +7,13 @@ let myLogger = (req, res, next) => {
     next();
   };
   
-  let requestTime = (req, res, next) => {
-    req.requestTime = Date.now();
-    next();
-  };
+//   let requestTime = (req, res, next) => {
+//     req.requestTime = Date.now();
+//     next();
+//   };
 
   app.use(myLogger);
-  app.use(requestTime);
+//   app.use(requestTime);
 
 let topMovies = [
     {
