@@ -1,3 +1,4 @@
+const morgan = require('morgan')
 const express = require('express');
 const { nextTick } = require('process');
 const app = express();
@@ -7,13 +8,15 @@ let myLogger = (req, res, next) => {
     next();
   };
   
-//   let requestTime = (req, res, next) => {
-//     req.requestTime = Date.now();
-//     next();
-//   };
+  let requestTime = (req, res, next) => {
+    req.requestTime = Date.now();
+    next();
+  };
 
   app.use(myLogger);
-//   app.use(requestTime);
+  app.use(requestTime);
+  app.use(express.static('public'));
+  app.use(morgan('common'));
 
 let topMovies = [
     {
@@ -52,17 +55,19 @@ app.get('/', (req, res) => {
     res.send('Welcome to my movie club!')
 });
 
-app.get('/movies', (req,res) {
+app.get('/movies', (req,res) => {
     res.json(topMovies)
 });
 
-app.use('/documentation.html', express.static('public') {
+app.get('/documentation.html', express.static('public') {
 
     res.sendFile('public/documentation.html', { root: __dirname })
 
 });
 
-app.get('/', function(err, req, res) {
+app.get('/', function(err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send('Something broke!')
     next()
 });
 
