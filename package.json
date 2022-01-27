@@ -55,10 +55,12 @@
     "type-is": "^1.6.18",
     "unpipe": "^1.0.0",
     "utils-merge": "^1.0.1",
+    "uuid": "^8.3.2",
     "vary": "^1.1.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -70,5 +72,8 @@
   "bugs": {
     "url": "https://github.com/jettb2/movie_api/issues"
   },
-  "homepage": "https://github.com/jettb2/movie_api#readme"
+  "homepage": "https://github.com/jettb2/movie_api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
