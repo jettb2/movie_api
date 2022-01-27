@@ -15,4 +15,77 @@
     This is my API (Application Programming Interface) for this project. An API help connect the users application with backend systems.
 </p>
 
+<h2>
+    Table 
+</h2>
+<table>
+    <tr>
+      <th>Request</th>
+      <th>URL</th>
+      <th>HTTP Method</th>
+      <th>Response</th>
+    </tr>
+
+    <tr>
+        <td>Allow new users to register</td>
+        <td>"/users"</td>
+        <td>POST</td>
+        <td>Will add new user to JSON object.</td>
+      </tr>
+  
+      <tr>
+          <td>Allow users to add a movie to their list of favorites</td>
+          <td>"/users/:id/:movieTitle"</td>
+          <td>POST</td>
+          <td>Returns a text confirming which movie was added successfully.</td>
+      </tr>
+
+    <tr>
+      <td>Return a list of all the movies to the user</td>
+      <td>'/movies'</td>
+      <td>GET</td>
+      <td>Returns a JSON list of movies.</td>
+    </tr>
+
+    <tr>
+      <td>Return data about a single movie by title to the user</td>
+      <td>'/movies/:title'</td>
+      <td>GET</td>
+      <td>Returns a JSON data about a specific movie.</td>
+    </tr>
+
+    <tr>
+      <td>Return data about a director by name</td>
+      <td>"/movies/directors/:directorName"</td>
+      <td>GET</td>
+      <td>Returns a JSON data about the director.</td>
+    </tr>
+
+    <tr>
+      <td>Return information about a genre by genre name.</td>
+      <td>"/movies/genre/:genreName"</td>
+      <td>GET</td>
+      <td>Returns a JSON data with a description of that genre.</td>
+    </tr>
+
+    <tr>
+      <td>Allow users to update their user information</td>
+      <td>"/users/:id"</td>
+      <td>PUT</td>
+      <td>Returns the data fields that was updated by the user.</td>
+    </tr>
+
+    <tr>
+      <td>Allow users to remove a movie from their list of favorites</td>
+      <td>"/users/:id/:movieTitle"</td>
+      <td>DELETE</td>
+      <td>Returns a text confirming which movie was removed successfully.</td>
+    </tr>
+    <tr>
+      <td>Allow existing user to deregister</td>
+      <td>/users/:id</td>
+      <td>DELETE</td>
+      <td>Return a text confirming that the user was deleted.</td>
+    </tr>
+  </table>
 </body>

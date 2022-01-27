@@ -220,6 +220,7 @@ app.get('/movies', (req, res) => {
     res.status(200).json(movies);
 })
 
+// READ
 app.get('/movies/:title', (req, res) => {
     const { title } = req.params;
     const movie = movies.find( movie => movie.Title === title );
