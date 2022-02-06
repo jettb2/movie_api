@@ -65,7 +65,7 @@ app.post('/users', (req, res) => {
 //CREATE NEW FAVORITE MOVIE FOR USER
 app.post('/users/:Username/movies/:_id', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
-       $push: { FavoriteMovies: req.params.MovieID }
+       $push: { FavoriteMovies: req.params._id }
      },
      { new: true }, // This line makes sure that the updated document is returned
     (err, updatedUser) => {
@@ -101,9 +101,9 @@ app.put('/users/:id', (req, res) => {
 });
 
 //DELETE USERS FAVORITE MOVIE
-app.post('/users/:Username/movies/:_id', (req, res) => {
+app.delete('/users/:Username/movies/:_id', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
-       $pull: { FavoriteMovies: req.params.MovieID }
+       $pull: { FavoriteMovies: req.params._id }
      },
      { new: true }, // This line makes sure that the updated document is returned
     (err, updatedUser) => {
@@ -192,21 +192,9 @@ app.get('/movies/genre/:genreName/', (req,res) => {
         });
 });
 
-// READ DIRECTORS BY NAME (INSTRUCTORS CODE)
-// app.get('/director/:Name', (req, res) => {
-//     Director.findOne({ 'Name': req.params.Name })
-//     .then((director) => {
-//         res.json(director);
-//     })
-//     .catch((err) => {
-//         console.error(err);
-//         res.status(500).send('Error: ' + err);
-//     });
-// });
-
 // READ DIRECTORS BY NAME
-app.get('/movie/Directors/:Name/', (req,res) => {
-    Movies.findOne({'Director.Name': req.params.DirectorName})
+app.get('/movies/Directors/:Name/', (req,res) => {
+    Movies.findOne({'Director.Name': req.params.Name})
         .then((movieDirector) => {
             res.json(movieDirector.Director)
         })
