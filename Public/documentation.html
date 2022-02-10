@@ -35,7 +35,7 @@
   
       <tr>
           <td>Allow users to add a movie to their list of favorites</td>
-          <td>"/users/:id/:movieTitle"</td>
+          <td>"/users/:_id/:movieTitle"</td>
           <td>POST</td>
           <td>Returns a text confirming which movie was added successfully.</td>
       </tr>
@@ -70,14 +70,14 @@
 
     <tr>
       <td>Allow users to update their user information</td>
-      <td>"/users/:id"</td>
+      <td>"/users/:Username"</td>
       <td>PUT</td>
       <td>Returns the data fields that was updated by the user.</td>
     </tr>
 
     <tr>
       <td>Allow users to remove a movie from their list of favorites</td>
-      <td>"/users/:id/:movieTitle"</td>
+      <td>"/users/:_id/:movieTitle"</td>
       <td>DELETE</td>
       <td>Returns a text confirming which movie was removed successfully.</td>
     </tr>

@@ -111,9 +111,8 @@ app.post('/users/:Username/movies/:_id', passport.authenticate('jwt', { session:
     });
   });
 
-
 //UPDATE USER INFO BY USERNAME
-app.put('/users/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username}, {$set:
         {
             Username:req.params.Username,
@@ -128,7 +127,7 @@ app.put('/users/:id', passport.authenticate('jwt', { session: false }), (req, re
             console.error(err);
             res.status(500).send('Error: ' + err);
         } else {
-            res.json(updatedUSer);
+            res.json(updatedUser);
         }
     });
 });
