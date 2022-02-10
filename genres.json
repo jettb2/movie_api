@@ -1,0 +1,24 @@
+[
+    
+    {
+        "Name": "Action",
+        "Description": "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats. ... This genre is closely associated with the thriller and adventure genres and may also contain elements of drama and spy fiction"
+    },
+    {
+        "Name": "Thriller",
+        "Description": "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that evokes excitement and suspense in the audience. ... Tension is created by delaying what the audience sees as inevitable, and is built through situations that are menacing or where escape seems impossible."
+    },
+    {
+        "Name": "Musical",
+        "Description": "Musical film is a film genre in which songs by the characters are interwoven into the narrative, sometimes accompanied by singing and dancing. ... Musical films characteristically contain elements reminiscent of theater; performers often treat their song and dance numbers as if a live audience were watching"
+    },
+    {
+        "Name": "Horror",
+        "Description": "Horror films may incorporate incidents of physical violence and psychological terror; they may be studies of deformed, disturbed, psychotic, or evil characters; stories of terrifying monsters or malevolent animals; or mystery thrillers that use atmosphere to build suspense."
+    },
+    {
+        "Name": "Comedy",
+        "Description": "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement. Films in this style traditionally have a happy ending (black comedy being an exception)."
+    }
+
+]

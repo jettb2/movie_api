@@ -1,0 +1,64 @@
+[
+    {
+        "_id": "61f71cfe9b8c6991288ae137",
+        "Username": "Alice E",
+        "Password": "Alice1",
+        "Email": "alice@gmail.com",
+        "Birthday": "2010-04-14T00:00:00.000Z",
+        "FavoriteMovies": []
+    },
+    {
+        "_id": "61f71d999b8c6991288ae13a",
+        "Username": "Chandler2",
+        "Password": "chantheman",
+        "Email": "chandler@gmail.com",
+        "Birthday": "1995-06-12T00:00:00.000Z",
+        "FavoriteMovies": []
+    },
+    {
+        "_id": "61f71da29b8c6991288ae13b",
+        "Username": "ZanderB2",
+        "Password": "BIGZ",
+        "Email": "zander@gmail.com",
+        "Birthday": "2012-12-25T00:00:00.000Z",
+        "FavoriteMovies": []
+    },
+    {
+        "_id": "61fdbd275aa31be7fefd6a2a",
+        "Username": "Jett2",
+        "Password": "password1",
+        "Email": "jett@gmail.com",
+        "FavoriteMovies": [
+            "61f6df9b9b8c6991288ae12e",
+            "61f6df9b9b8c6991288ae12e"
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "6200af421de04b3f1c6a3330",
+        "Username": "JettB",
+        "Password": "PAssword",
+        "Email": "jett2@yahoo.com",
+        "Birthday": "2001-09-01T00:00:00.000Z",
+        "FavoriteMovies": [],
+        "__v": 0
+    },
+    {
+        "_id": "6200b04a1de04b3f1c6a3335",
+        "Username": "Jett22",
+        "Password": "PAssword",
+        "Email": "jett2@yahoo.com",
+        "Birthday": "2001-09-01T00:00:00.000Z",
+        "FavoriteMovies": [],
+        "__v": 0
+    },
+    {
+        "_id": "6200b2111de04b3f1c6a3338",
+        "Username": "Jett-test",
+        "Password": "PAssword",
+        "Email": "jett2@yahoo.com",
+        "Birthday": "2001-09-01T00:00:00.000Z",
+        "FavoriteMovies": [],
+        "__v": 0
+    }
+]
