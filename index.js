@@ -112,7 +112,7 @@ app.post('/users/:Username/movies/:_id', passport.authenticate('jwt', { session:
 });
 
 // UPDATE USER INFO BY USERNAME
-app.put('/users/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $set:
     {
