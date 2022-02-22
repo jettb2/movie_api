@@ -112,24 +112,24 @@ app.post('/users/:Username/movies/:_id', passport.authenticate('jwt', { session:
 });
 
 // UPDATE USER INFO BY USERNAME
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [check('Username', 'Username is required').isLength({ min: 5 }), check('Username', 'Username contains non-alphanumeric characters - not allowed.').isAlphanumeric(), check('Password', 'Password is required').not().isEmpty(), check('Email', 'Email does not appear to be valid').isEmail(),], (req, res) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ erros: errors.array() });
+  }
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-    $set:
-    {
-      Username: req.params.Username,
-      Password: req.params.Password,
-      Email: req.params.Email,
-      Birthday: req.params.Birthday,
+    $set: {
+      Username: req.body.Username,
+      Password: hashedPassword,
+      Email: req.body.Email,
+      Birthday: req.body.Birthday,
     }
   },
-    { new: true },
-    (err, updatedUser) => {
+    { new: true }, (err, updatedUser) => {
       if (err) {
-        console.error(err);
-        res.status(500).send('Error: ' + err);
-      } else {
-        res.json(updatedUser);
-      }
+        console.error(err); res.status(500).send('Error: ' + err);
+      } else { res.json(updatedUser); }
     });
 });
 
