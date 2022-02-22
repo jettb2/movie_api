@@ -24,13 +24,13 @@ app.use(express.static('public'));
 
 // CORS 
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['http://localhost:8080', 'https://jett-flix-2.herokuapp.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
-      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+      let message = "The CORS policy for this application doesn't allow access from origin " + origin;
       return callback(new Error(message), false);
     }
     return callback(null, true);
@@ -95,7 +95,7 @@ app.post('/users',
       });
   });
 
-//CREATE NEW FAVORITE MOVIE FOR USER
+// CREATE NEW FAVORITE MOVIE FOR USER
 app.post('/users/:Username/movies/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $push: { FavoriteMovies: req.params._id }
@@ -111,7 +111,7 @@ app.post('/users/:Username/movies/:_id', passport.authenticate('jwt', { session:
     });
 });
 
-//UPDATE USER INFO BY USERNAME
+// UPDATE USER INFO BY USERNAME
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $set:
@@ -133,7 +133,7 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (r
     });
 });
 
-//DELETE USERS FAVORITE MOVIE
+// DELETE USERS FAVORITE MOVIE
 app.delete('/users/:Username/movies/:_id', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $pull: { FavoriteMovies: req.params._id }
@@ -149,7 +149,7 @@ app.delete('/users/:Username/movies/:_id', passport.authenticate('jwt', { sessio
     });
 });
 
-//DELETE USER
+// DELETE USER
 app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
@@ -165,7 +165,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
     });
 });
 
-//READ ALL USERS
+// READ ALL USERS
 app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.find()
     .then((users) => {
@@ -177,7 +177,7 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
     });
 });
 
-//READ A USER BY USERNAME
+// READ A USER BY USERNAME
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
@@ -201,7 +201,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
     });
 });
 
-//   READ MOVIES BY TITLE
+// READ MOVIES BY TITLE
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movieTitle) => {
