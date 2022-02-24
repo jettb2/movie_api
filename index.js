@@ -24,7 +24,7 @@ app.use(express.static('public'));
 
 // CORS 
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'https://jett-flix-2.herokuapp.com', 'http://localhost:1234'];
+let allowedOrigins = ['http://localhost:8080', 'https://jett-flix-2.herokuapp.com', 'http://localhost:1234', 'https://jett-flix-2.herokuapp.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
