@@ -14,17 +14,10 @@ const app = express();
 app.use(morgan('common'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const bodyParser = require('body-parser');
-const uuid = require('uuid');
-let auth = require('./auth')(app); //this ensures that express is available in your auth.js file
-const passport = require('passport'); //require the Passport module and import the “passport.js” file
-require('./passport'); //this line also requires the Passport module and imports the “passport.js” file
-
-app.use(express.static('public'));
 
 // CORS 
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'https://jett-flix-2.herokuapp.com', 'http://localhost:1234', 'https://jett-flix-2.herokuapp.com'];
+let allowedOrigins = ['http://localhost:8080', 'https://jett-flix-2.herokuapp.com', 'http://localhost:1234', 'http://localhost:1234/login', 'http://localhost:1234/movies', 'https://jett-flix-2.herokuapp.com', 'https://jett-flix-2.herokuapp.com/login', 'https://jett-flix-2.herokuapp.com/movies'];
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -37,6 +30,16 @@ app.use(cors({
   }
 }));
 // END OF CORS
+
+const bodyParser = require('body-parser');
+const uuid = require('uuid');
+let auth = require('./auth')(app); //this ensures that express is available in your auth.js file
+const passport = require('passport'); //require the Passport module and import the “passport.js” file
+require('./passport'); //this line also requires the Passport module and imports the “passport.js” file
+
+app.use(express.static('public'));
+
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to my movie club!')
@@ -190,7 +193,7 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 });
 
 // READ ALL MOVIES
-app.get('/movies', /*passport.authenticate('jwt', { session: false }),*/(req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
